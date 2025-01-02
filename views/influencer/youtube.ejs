@@ -1,0 +1,77 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+.card {
+  border: 2px solid rgb(74, 69, 69); /* Existing solid border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: box-shadow 0.3s; /* Smooth transition on hover */
+
+}
+.card-body{
+  margin-left: 5px;
+}
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+</style>
+
+<body class="c-flex  vh-100">
+    <header><div class="container text-center">
+      <h1 class="mb-4">Your YouTube Channel Info</h1>
+      
+      <div class="card mx-auto" style="width: 18rem;">
+        <img src="<%= channel.thumbnail %>" class="card-img-top" alt="Channel Thumbnail">
+        <div class="card-body">
+          <h5 class="card-title"><%= channel.title %></h5>
+          <p class="card-text">Channel ID: <strong><%= channel.id %></strong></p>
+          <p class="card-text"><%= channel.description %></p>
+          <p class="card-text">views : <b><%= channel.views %></b></p>
+          <p class="card-text">Subscribers : <b><%= channel.subscribers %></b></p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <h2>Most Popular Video</h2>
+    <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="<%= mostPopularContent.thumbnail %>" class="card-img-top" alt="Video Thumbnail">
+          <div class="card-body">
+            <h5 class="card-title"><%= mostPopularContent.title %></h5>
+            <p class="card-text">Views:<b> <%= mostPopularContent.views %></b></p>
+            <p class="card-text">Likes:<b> <%= mostPopularContent.likes %></b></p>
+            <p class="card-text">Comments:<b> <%= mostPopularContent.comments %></b></p>
+            <p class="card-text">EngagementRate:<b> <%= mostPopularContent.engagementRate %></b></p>
+            <p class="card-text"><%= mostPopularContent.description %></p>
+          
+          </div>
+        </div>
+      </div>
+
+    <div class="container mt-4">
+      <h1 class="text-center mb-4">Your YouTube Videos</h1>
+  
+      <% if(videosList.length>0) { %>
+        <div class="row">
+        <% videosList.forEach(function(video) { %>
+          <div class="col-md-4 mb-4 "">
+            <div class="card">
+              <img src="<%= video.thumbnail %>" class="card-img-top" alt="Video Thumbnail">
+              <div class="card-body">
+                <h5 class="card-title"><%= video.title %></h5>
+                <p class="card-text">Views: <%= video.views %></p>
+                <p class="card-text">Likes: <%= video.likes %></p>
+                <p class="card-text">Comments: <%= video.comments %></p>
+                <p class="card-text">EngagementRate: <%= video.engagementRate %></p>
+                <p class="card-text"><%= video.description %></p>
+              
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div> <% }else{ %>
+        <h2>NO VIDEOS POSTED ON THIS CHANNEL!!</h2>
+      <% } %>
+  
+    </div>
+  

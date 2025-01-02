@@ -1,0 +1,182 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+  <div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+      <p class="lead">Keep your profile up-to-date for better engagement and visibility.</p>
+      <hr class="styled-line">
+    </div>
+
+    <!-- Row for Profile and Update Profile -->
+    <div class="row">
+      <!-- Profile Information Column -->
+      <div class="col-md-6">
+        <% if (profileComplete) { %>
+          <div class="card shadow mb-4 profile-card">
+            <div style="margin-top: 15px;" class="card-body text-center">
+              <img src="/images/<%= user.profilePic %>" alt="Profile Picture" class="rounded-circle mb-3 profile-img" width="150" height="150">
+              <div class="profile-info">
+                <h6 class="profile-label">Username</h6>
+                <p class="info-value"><%= user.username %></p>
+                <h6 class="profile-label">Email</h6>
+                <p class="info-value"><%= user.email %></p>
+                <h6 class="profile-label">Bio</h6>
+                <p class="info-value"><%= user.bio %></p>
+                <h6 class="profile-label">Social Media</h6>
+                <div class="social-media-info">
+                  <p><i class="fab fa-instagram"></i><span class="info-value"><%= user.socialMedia.instagram %></span></p>
+                  <p><i class="fab fa-facebook"></i><span class="info-value"><%= user.socialMedia.facebook %></span></p>
+                  <p><i class="fab fa-youtube"></i><span class="info-value"><%= user.socialMedia.youtube %></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% } else { %>
+          <p class="alert alert-warning text-center">Your profile is incomplete. Please fill in the details below.</p>
+        <% } %>
+      </div>
+
+      <!-- Profile Update Form Column -->
+      <div class="col-md-6">
+        <div class="card shadow p-4 update-card">
+          <h5 class="text-center">Update Your Information</h5>
+          <form action="/user/profile" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="bio" class="form-label">Bio</label>
+              <textarea name="bio" id="bio" class="form-control styled-textarea" rows="3" placeholder="Tell us about yourself..."><%= user.bio || '' %></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="profilePic" class="form-label">Profile Picture</label>
+              <input type="file" name="profilePic" id="profilePic" class="form-control">
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="instagram" class="form-label">Instagram Handle</label>
+                  <input type="text" name="instagram" id="instagram" class="form-control" value="<%= user.socialMedia.instagram || '' %>" placeholder="@yourhandle">
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="facebook" class="form-label">Facebook Handle</label>
+                  <input type="text" name="facebook" id="facebook" class="form-control" value="<%= user.socialMedia.facebook || '' %>" placeholder="facebook.com/yourprofile">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="youtube" class="form-label">YouTube Channel URL</label>
+              <input type="text" name="youtube" id="youtube" class="form-control" value="<%= user.socialMedia.youtube || '' %>" placeholder="youtube.com/yourchannel">
+            </div>
+
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow">Update Profile</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FontAwesome Icons for social media -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      background: linear-gradient(to right, #f7f9fc, #e9eff1);
+      font-family: 'Arial', sans-serif;
+    }
+
+    .profile-heading {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .styled-line {
+      width: 150px;
+      margin: 0 auto;
+      border-top: 3px solid #007bff;
+      margin-bottom: 30px;
+    }
+
+    .profile-card, .update-card {
+      border-radius: 15px;
+      background: #fff;
+      transition: transform 0.2s;
+    }
+
+    .profile-card:hover, .update-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .profile-img {
+      border: 5px solid #007bff;
+      transition: border-color 0.3s;
+    }
+
+    .profile-img:hover {
+      border-color: #0056b3;
+    }
+
+    .profile-label {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    .info-value {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .social-media-info p {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .social-media-info i {
+      color: #007bff;
+      margin-right: 8px;
+    }
+
+    .styled-textarea {
+      resize: none;
+      padding: 10px;
+      border: 2px solid #007bff;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+
+    .styled-textarea:focus {
+      border-color: #0056b3;
+      box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: #333;
+    }
+  </style>
+</body>

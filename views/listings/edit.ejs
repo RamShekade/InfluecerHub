@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <h3 style="color: #333; font-size: 1.5rem; text-align: center; margin: 1rem 0; font-variant: small-caps;">Edit Your Listing</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+        <div>
+            <label for="title" class="form-label"><b>Title:</b></label><br>
+            <input name="listing[title]" value="<%= listing.title%>"class="form-control" type="text" required> 
+       </div>
+       <br>
+       <diV>
+        <label for="description" class="form-label"><b>Description:</b></label><br>
+        <textarea name="listing[description]" class="form-control"><%= listing.description%> required</textarea>
+        
+    </diV>
+    <br>
+    <diV>
+        <label for="image" class="form-label"><b>Image:</b></label><br>
+       <input name="listing[image]" value="<%= listing.image%>"class="form-control" type="text" > 
+
+    </diV>
+    <br>
+    
+    <diV>
+        <label for="contact" class="form-label"><b>Contact:</b></label><br>
+
+        <input name="listing[contact]" value="<%= listing.contact %>" 
+       type="text" 
+       class="form-control" 
+       required 
+       minlength="10" 
+       maxlength="10" 
+       pattern="\d{10}" 
+       title="Contact number must be exactly 10 digits">
+    </diV>
+    
+    <br>
+    <diV>
+        <label for="eligibility" class="form-label"><b>Eligibility:</b></label><br>
+
+        <input name="listing[eligibility]" value="<%= listing.eligibility%>" type="text" class="form-control" required> 
+        
+    </diV>
+    <br>
+   
+       <br><br>
+        <button  style="width: 6rem;"  class="save-btn">save:</button><br><br>
+        <div>
+            <p></p>
+        </div>
+
+    </form>
+</body>

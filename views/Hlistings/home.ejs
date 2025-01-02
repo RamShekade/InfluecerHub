@@ -1,0 +1,121 @@
+
+
+<style>
+    /* Container taking full screen with a grid layout */
+    .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  grid-auto-rows: minmax(17rem, auto); /* Adjust row heights dynamically */
+  gap: 0.5rem; /* Add spacing between divs */
+  height: 100vh;
+  padding: 1rem;
+  position: relative;
+}
+
+.image-div {
+  position: relative;
+  width: 100%; /* Take full width of the grid cell */
+  background-color: white; /* White background */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3; /* Start with low opacity */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.image-div:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+.no-blur {
+  opacity: 1 !important; /* Keep it fully visible */
+}
+
+.small-div {
+  grid-row: span 1; /* Takes up 1 row */
+}
+
+.large-div {
+  grid-row: span 1.5; /* Takes up 1.5 rows (smaller large div) */
+}
+
+.center-div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  width: 25rem;
+  height: 15rem;
+  text-align: center;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  transition: opacity 0.5s ease-out; /* Smooth fade-out */
+  opacity: 1; /* Visible by default */
+}
+
+
+
+
+.headline {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fd05b3;
+  margin-bottom: 0.5rem;
+}
+
+.quote {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #000;
+  margin-bottom: 1rem;
+}
+
+.btn-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.3rem 0.7rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+  </style>
+  
+  <div class="container">
+    <!-- Row 1 with small and large divs -->
+    <div class="image-div small-div" style="background-image: url('/images/home1.jpg');"></div>
+    <div class="image-div large-div" style="background-image: url('/images/home2.jpg');"></div>
+    <div class="image-div small-div" style="background-image: url('/images/home3.jpg');"></div>
+  
+    <!-- Row 2 with central div for quote and buttons, no blur on the middle image -->
+    <div class="image-div large-div" style="background-image: url('/images/home4.jpg');"></div>
+    <div class="image-div no-blur" style="background-image: url('/images/home5.jpg');">
+      <div class="center-div">
+        <h1 class="headline">InfluencerHub</h1>
+        <p class="quote">"You can't buy engagement. You have to earn it."</p>
+        <div class="btn-container">
+          <button class="btn" onclick="window.location.href='/login'">Login</button>
+          <button class="btn" onclick="window.location.href='/signup'">Signup</button>
+        </div>
+      </div>
+    </div>
+    <div class="image-div small-div" style="background-image: url('/images/home6.jpg');"></div>
+  
+    <!-- Row 3 with divs of varying sizes -->
+    <div class="image-div large-div" style="background-image: url('/images/home7.jpg');"></div>
+    <div class="image-div small-div" style="background-image: url('/images/home8.jpg');"></div>
+    <div class="image-div large-div" style="background-image: url('/images/home9.jpg');"></div>
+  </div>
+  

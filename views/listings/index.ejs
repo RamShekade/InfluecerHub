@@ -1,0 +1,45 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    <h1  style="color: #333; font-size: 3rem; text-align: center; margin: 1rem 0; font-variant: small-caps;">All Brands Listings</h1>
+   
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for(let listing of allListings){ %>
+          <a href="/listing/<%= listing._id %>" class="listing-link">
+            <div class="card col" style="width: 17rem;">
+              <!-- Image -->
+              <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 17rem; object-fit: cover;">
+              
+              <!-- Card Body -->
+              <div class="card-body">
+                <p class="card-text">
+                  <b><%= listing.title %></b> <br>
+                  <%= listing.description %> 
+                </p>
+              </div>
+            </div>
+          </a>
+        <% } %>
+      </div>
+      
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- <form method="GET" action="/listings/new">
+        <button>create new listing</button>
+    </form> -->
+    
+    
+    
+</body>
+ 
+</html>

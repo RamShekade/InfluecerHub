@@ -1,0 +1,32 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="row">
+    <div class="col-7 offset-2">
+
+
+
+
+<body>
+    <h3>Company details</h3>
+
+
+    <div class="showcard">
+        <img src="<%= listing.image.url%>" class="card-img-top show-image" alt="Listing_image">
+      <div class="card-body">
+        <p class="card-text">
+            <li><b>TITLE</b> : <%= listing.title %></li>
+            <li><b>CONTACT</b> : <%= listing.contact %></li>
+            <li><b>ELIGIBILITY(follwers) </b>: <%= listing.eligibility %>K</li>
+            <li><b>DESCRIPTION</b> : <%= listing.description %></li>
+            
+           
+        </p>
+      </div>
+    </div>
+
+    <br>
+    
+    </div>
+</div>
+    </div>
+</body>
+</html>

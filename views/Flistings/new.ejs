@@ -1,0 +1,49 @@
+<% layout("/layouts/boilerplate") %>
+
+<body><br>
+    <h3 style="font-variant: small-caps; text-align: center;">Create new Freelancer</h3><br>
+    
+    <!-- Form for creating a new freelancer -->
+    <form method="POST" action="/freelancers" novalidate class="needs-validation" enctype="multipart/form-data">
+        
+        <!-- Freelancer Name -->
+        <div>
+            <label for="name" class="form-label">Name</label><br>
+            <input name="freelancer[name]" placeholder="Enter Name" type="text" class="form-control" required>
+            <div class="valid-feedback">Name looks good!</div>
+            <div class="invalid-feedback">Please enter a valid name.</div>
+        </div>
+        <br> 
+        
+        <!-- Freelancer Role -->
+        <div>
+            <label for="role" class="form-label">Role</label><br>
+            <input name="freelancer[role]" placeholder="Enter Role" type="text" class="form-control" required>
+            <div class="valid-feedback">Role looks good!</div>
+            <div class="invalid-feedback">Please enter a valid role.</div>
+        </div>
+        <br> 
+
+        <!-- Freelancer Image -->
+        <div>
+            <label for="image" class="form-label">Upload Image</label><br>
+            <input name="freelancer[image]" type="file" class="form-control"> 
+            <div class="invalid-feedback">Please upload an image.</div>
+        </div>
+        <br> 
+
+        <!-- Freelancer Location -->
+        <div>
+            <label for="location" class="form-label">Location</label><br>
+            <input name="freelancer[location]" placeholder="Enter Location" type="text" class="form-control" required>
+            <div class="valid-feedback">Location looks good!</div>
+            <div class="invalid-feedback">Please enter a valid location.</div>
+        </div>
+        <br> 
+        
+        <!-- Submit button -->
+        <button class="btn btn-dark add-btn save-btn">Add Freelancer</button>
+
+        <br><br>
+    </form>
+</body>
