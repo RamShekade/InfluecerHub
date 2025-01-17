@@ -1,0 +1,33 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+  <div class="col-7 offset-2">
+    <body>
+      <h3 class="text-center mb-4">Freelancer Details</h3>
+
+      <div class="d-flex profile-card">
+        <!-- Profile Image -->
+        <div class="flex-shrink-0">
+          <img src="<%= freelancer.image.url %>" style="height: 30rem; border-radius: 11%; " alt="Profile Image" class="profile-image">
+        </div>
+        
+        <!-- Profile Information -->
+        <div class="flex-grow-1 ms-4"> <!-- Added margin start for spacing -->
+          <h2><%= freelancer.username %></h2>
+          <h3>Role: <%= freelancer.role %></h3>
+          <p><strong>Location:</strong> <%= freelancer.location %></p>
+          <p><strong>Portfolio:</strong> <a href="<%= freelancer.portfolio %>" target="_blank"><%= freelancer.portfolio %></a></p>
+          <div class="skills-list">
+            <strong>Skills:</strong>
+            <% freelancer.skills.forEach(skill => { %>
+              <span class="badge bg-secondary ms-1"><%= skill %></span> <!-- Styled with a badge for better appearance -->
+            <% }); %>
+          </div>
+          <!-- Connect Button -->
+          <div class="text-center mt-3">
+            <a href="/chat/<%= freelancer.username %>" class="btn btn-success">Connect</a>
+          </div>
+        </div>
+      </div>
+    </body>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate") %>
+<body><br>
+    <h3 style="font-variant: small-caps; text-align: center;">Create new Profile</h3><br>
+    <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+        
+        <div>
+            <label for="title" class="form-label">Brand</label><br>
+            <input name="listing[title]" placeholder="Enter Brand Name" type="text" class="form-control" required > 
+        <div class="valid-feedback">Title Look Good!</div>
+        </div>
+        <br> 
+       
+        <div>
+            <label for="description" class="form-label">Description</label><br>
+            <textarea name="listing[description]" placeholder="enter description" rows="3" cols="30"  class="form-control" required></textarea>
+        </div>
+    <br> 
+        
+        
+
+        <div>
+            <label for="image" class="form-label">Upload image</label><br>
+        <input name="listing[image]"  type="file" class="form-control"> 
+        </div>
+
+
+
+        <br> 
+        
+        <div>
+            <label for="contact" class="form-label">Contact</label><br>
+            <input name="listing[contact]" placeholder="enter contact" type="number" min="0" class="form-control" required> 
+            <div class="invalid-feedback">Enter contact In Valid Format</div>
+       </div>
+        <br> 
+       
+        <div>
+            <label for="eligibility" class="form-label">Eligibility</label><br>
+            <input name="listing[eligibility]" placeholder="enter country" type="text" class="form-control" required> 
+            <div class="invalid-feedback">Enter eligibility </div>
+       </div>
+       <br> 
+       
+      
+        <br> 
+        <button class="btn btn-dark add-btn save-btn">Add</button>
+
+        <br><br>
+        <div>
+            <p></p>
+        </div>
+    </form>
+    
+</body>

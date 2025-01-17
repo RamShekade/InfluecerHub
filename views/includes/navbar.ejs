@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="fa-solid fa-icons"></i></a>
+      
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link " href="/">Home</a>
+          <a class="nav-link" href="/company/home">Influencer</a>
+
+          <!-- Company Dropdown -->
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Companies
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/listings">View Listings</a></li>
+              
+            </ul>
+          </div>
+          
+          <!-- <a class="nav-link" href="/freelancers">Freelancers</a> -->
+
+        <!-- Freelancer Dropdown -->
+
+        <div class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="freelancerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Freelancers
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="freelancerDropdown">
+    <li><a class="dropdown-item" href="/freelancers">View Freelancers</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+        </div>
+
+       
+       
+        <!-- Premium Button -->
+        <div style="margin-left: auto; margin-right: 20px;">
+          <!-- <div style="margin-left: auto; text-align: center;"> -->
+            <a class="navbar-brand" href="/company/influencers">
+              <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+            </a>
+           <% if(username){ %>
+                  <a href="/user/profile" style="display: block; font-size: 14px; color: black;">
+                    <%= username %></a>
+           <% } %>
+          </div>
+          <a href="/logout" class="btn " style=" margin-left: 20px; background-color: rgb(233, 41, 41); color: white; padding: 2px 6px; border-radius: 10px; font-weight: bold;">Logout</a>
+
+          <a href="/user/premium" class="btn" style=" margin-left: 20px; background-color: rgb(233, 41, 41); color: white; padding: 2px 6px; border-radius: 10px; font-weight: bold;">Premium</a>
+        </div>
+
+      </div>
+    </div>
+</nav>

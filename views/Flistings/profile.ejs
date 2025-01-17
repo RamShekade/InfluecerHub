@@ -1,0 +1,143 @@
+<% layout("/layouts/boilerplate") %>
+
+<head>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .profile-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .profile-image {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      margin-right: 30px;
+      object-fit: cover;
+    }
+    .profile-info {
+      flex: 1;
+    }
+    .profile-info h2 {
+      margin: 0;
+      color: #333;
+    }
+    .profile-info p {
+      margin: 5px 0;
+      color: #777;
+    }
+    .skills-list {
+      margin: 10px 0;
+    }
+    .skills-list span {
+      background-color: #e0e0e0;
+      border-radius: 4px;
+      padding: 5px 10px;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+    .btn-container {
+      margin-top: 20px;
+    }
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      background-color: #1a73e8;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #155ab7;
+    }
+    .form-container {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Freelancer Profile</h1>
+
+    <!-- Profile Display Section -->
+    <% if (flisting) { %>
+      <div class="profile-card">
+        <img src="<%= flisting.image.url %>" alt="Profile Image" class="profile-image">
+        <div class="profile-info">
+            <h2><%= flisting.username %></h2>
+          <h2><%= flisting.role %></h2>
+          <p><strong>Location:</strong> <%= flisting.location %></p>
+          <p><strong>Portfolio:</strong> <a href="<%= flisting.portfolio %>" target="_blank"><%= flisting.portfolio %></a></p>
+          <div class="skills-list">
+            <strong>Skills:</strong>
+            <% flisting.skills.forEach(skill => { %>
+              <span><%= skill %></span>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button to Edit Profile -->
+      <div class="btn-container">
+        <a href="/freelancer/edit/<%= flisting._id %>" class="btn">Edit Profile</a>
+      </div>
+    <% } else { %>
+      <!-- If no profile exists, show the create form -->
+      <h2>Create Your Profile</h2>
+    <% } %>
+
+    <!-- Profile Form (Create or Update) -->
+    <div class="form-container">
+      <form action="/freelancer/profile" method="POST" enctype="multipart/form-data">
+        <label for="role">Role</label>
+        <input type="text" id="role" name="role" value="<%= flisting ? flisting.role : '' %>" required>
+
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" value="<%= flisting ? flisting.location : '' %>" required>
+
+        <label for="skills">Skills (comma separated)</label>
+        <input type="text" id="skills" name="skills" value="<%= flisting ? flisting.skills.join(', ') : '' %>" required>
+
+        <label for="portfolio">Portfolio Link</label>
+        <input type="url" id="portfolio" name="portfolio" value="<%= flisting ? flisting.portfolio : '' %>">
+
+        <label for="image">Profile Picture</label>
+        <input type="file" id="image" name="image">
+
+        <div class="btn-container">
+          <button type="submit" class="btn"><%= flisting ? 'Update Profile' : 'Create Profile' %></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerplate") %>
+<header>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .premium-info {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .btn-upgrade {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      background: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background 0.3s;
+    }
+    .btn-upgrade:hover {
+      background: #0c5bb5;
+    }
+  </style>
+</header>
+
+<body>
+  <div class="container">
+    <h1>Upgrade to Premium</h1>
+    
+    <div class="premium-info">
+      <h2>Get 1 Month Free Premium Access!</h2>
+      <p>As a premium member, you will enjoy the following benefits:</p>
+      <ul>
+        <li>Access to exclusive content</li>
+        <li>Priority support</li>
+        <li>Additional features and tools</li>
+        <li>And much more!</li>
+      </ul>
+      <p>Sign up now to claim your free month of premium membership!</p>
+    </div>
+    <form action="/user/premium" method="post">
+        <button type="submit" class="btn-upgrade">Activate Free Premium Trial</button>
+    </form>
+  </div>
+</body>

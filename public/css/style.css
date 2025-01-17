@@ -1,0 +1,146 @@
+/* navbar */
+
+.navbar {
+    height: 4rem;
+    background-color: #e5f3d8  ;
+}
+
+.fa-solid{
+    color: rgb(136, 55, 118);
+    font-size: 2rem ;
+}
+
+.nav-link{
+    color: #222222 !important;
+    font-weight: 700 !important;
+}
+
+/* _________________________________________ */
+/* footer */
+
+/* footer */
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links{
+    width: 100%;
+    }
+
+
+
+.f-info-social{
+    width: 100%;
+    font-size: 1.5rem;
+   
+    
+}
+
+.f-info-social i{
+    margin-right: 2rem;
+}
+
+.f-info{
+    text-align: center;
+    display: flex;
+    height: 8rem;
+    background-color: #F1F8E8;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* _________________________________________ */
+/* cards */
+ 
+.card{
+    border: none !important;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem ;
+    margin-left: 1.3px !important;
+    width: 21rem !important;
+    transition: transform 0.3s ease !important;
+
+}
+
+.card:hover {
+    width: 22rem !important;
+    height: auto !important;
+    transform: scale(1.06);
+}
+
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+
+.card-body{
+    padding: 0 !important;
+}
+
+.row{
+    margin-left: 2rem;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+
+/* }card effect */
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.3;
+    background-color: white;
+   
+}
+
+
+
+/* __________________________________________________________________________________________________ */
+/* Show page */
+
+.show-image{
+    height: 50vh;
+    width: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0; /* Adjust as needed */
+}
+
+.button-container .btn,
+.button-container .delete-form {
+    margin: 0 2rem; /* Adjust spacing between buttons as needed */
+}
+
+.listing-link {
+    color: rgb(254, 255, 255); /* Ensure link text color matches button */
+    text-decoration: none; /* Remove underline from link */
+}
+
+.delete-form {
+    display: inline; /* Ensure form displays inline */
+}
+
+.red{
+    
+        margin-left: 700px;
+    
+}
