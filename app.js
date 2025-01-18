@@ -209,7 +209,7 @@ app.post("/login", passport.authenticate('local', { failureFlash: true, failureR
     const {role}=await User.findOne({username: req.user.username})
  
     req.flash("success_msg", `Welcome back, ${req.user.username}!`);
-   if(reqrole==role){
+//    if(reqrole==role){
     // Redirect based on the role
         if (reqrole === "user") {
                 res.redirect("/user/home");
@@ -228,7 +228,8 @@ app.post("/login", passport.authenticate('local', { failureFlash: true, failureR
         } else {
             res.redirect("/"); // Fallback
         }}
-});
+// }
+);
 
 app.get('/logout', (req, res, next) => {
   req.logout(function(err) {  // The callback is needed for newer versions of Passport.js
